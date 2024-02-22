@@ -72,6 +72,8 @@ traveler_id - Integer - foreign key
 island_id - Integer - foreign key
 ```
 
-You may to have to research how to do certain things such as the datetime and foreign key.
+You may to have to research how to do certain things such as the datetime and foreign key. 
+
+A Vacation belongs to a Traveler and an Island (assume the vacation only involves one traveler on one island). Islands can have many vacations and travelers can have many vacations.
 
 Additionally, build out all the routes you'll need for your vacations.
