@@ -9,4 +9,23 @@ metadata = MetaData(naming_convention={
 
 db = SQLAlchemy(metadata=metadata)
 
-# write your models here!
+class Traveler(db.Model):
+    pass
+
+    # ATTRIBUTES #
+
+    # id - Integer
+    # name - String - required
+    # age - Integer
+    # budget - Integer
+    # frequent_flyer - Boolean
+
+class Island(db.Model):
+    pass
+
+    # ATTRIBUTES #
+
+    # id - Integer
+    # name - String - required and unique
+    # square_miles - Integer
+    # average_temperature - Integer
