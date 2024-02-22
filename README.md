@@ -28,6 +28,8 @@ average_temperature - Integer
 
 Once you've built the models you ought to initialize, migrate, and upgrade the database.
 
+Additionally, don't forget your `to_dict` method!
+
 ### Seeding the Database
 
 You already have a prebuilt seed file in `seed.py`. Attempt to run it with `python seed.py`. 
@@ -57,3 +59,19 @@ DELETE /islands/:id
 Be sure to test your routes with Postman. 
 
 Additionally, be sure to account for certain events like invalid data or objects not found with the proper status codes!
+
+### Bonus
+
+Build an additional model called `Vacation` with these attributes:
+
+```
+id - Integer - primary key
+date - Datetime
+description - String
+traveler_id - Integer - foreign key
+island_id - Integer - foreign key
+```
+
+You may to have to research how to do certain things such as the datetime and foreign key.
+
+Additionally, build out all the routes you'll need for your vacations.
