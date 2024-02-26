@@ -20,8 +20,12 @@ if __name__ == '__main__':
 
         bools = [True, False]
 
+        count = 1
+
         for _ in range(10):
-            t = Traveler(name=faker.name(), age=randint(10, 100), budget=randint(500, 50000), frequent_flyer=choice(bools))
+            t = Traveler(name=faker.name(), age=randint(10, 100), budget=randint(500, 50000), frequent_flyer=choice(bools), email=f"{count}@gmail.com")
+
+            count += 1
 
             print(f"  Created {t.name}...")
             db.session.add(t)

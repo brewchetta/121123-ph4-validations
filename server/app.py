@@ -4,6 +4,7 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_cors import CORS
+import sqlalchemy
 
 from models import db, Traveler, Island, Vacation
 
@@ -47,11 +48,14 @@ def post_travelers():
     data = request.json
 
     try:
-        new_traveler = Traveler(name=data.get("name"), age=data.get("age"), budget=data.get("budget"), frequent_flyer=data.get("frequent_flyer"))
+        new_traveler = Traveler(name=data.get("name"), age=data.get("age"), budget=data.get("budget"), frequent_flyer=data.get("frequent_flyer"), email=data.get("email"))
 
         db.session.add(new_traveler)
         db.session.commit()
         return new_traveler.to_dict(), 201
+    
+    except ValueError as error:
+        return { "error": f"{error}" }, 406
     
     except:
         return { "error": "Invalid traveler" }, 406
@@ -109,11 +113,6 @@ def get_island_by_id(id):
     else:
         return { "error": "Not found" }, 404
 
-# POST - CREATE
-
-# PATCH - UPDATE
-
-# DELETE - DESTROY BY ID
     
 # --- VACATION ROUTES --- #
 
